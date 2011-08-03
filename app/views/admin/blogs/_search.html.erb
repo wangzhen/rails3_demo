@@ -1,0 +1,33 @@
+<% form_for @search, :url => admin_blogs_path(:blog => params[:search]),
+  :html => {:id => 'search'} do |f| %>
+  <table>
+
+
+      <tr>
+        <td style="width:100px;text-align:right;">
+          <span><%= Blog.human_attribute_name("title") %>:</span>
+        </td>
+        <td>
+                 <%= f.text_field :title_contains %>
+        </td>
+        <td  style="width:150px;text-align:right;">
+        </td>
+        <td  style="width:150px;text-align:right;"></td>
+      </tr>
+      <tr>
+        <td style="width:100px;text-align:right;">
+          <span><%= t("labels.keyword") %>:</span>
+        </td>
+        <td>
+          <%= text_field_tag :keyword ,params[:keyword],:size => 20 %>
+        </td>
+        <td  style="width:150px;text-align:right;">
+        </td>
+        <td  style="width:150px;text-align:right;">
+          <%= hidden_field_tag :per_page, params[:per_page] || 50 %>
+          <%= f.submit t('labels.search'), :class => "btn_s float_right" %></td>
+      </tr>
+  </table>
+
+  <br class="clear"/>
+<% end %>

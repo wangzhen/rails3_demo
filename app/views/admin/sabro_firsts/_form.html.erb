@@ -1,0 +1,29 @@
+<% form_for [:admin, @sabro_first], :url => path do |form| %>
+  <% @sabro_first.errors.full_messages.each do |e| %>
+    <%=  e  %><br />
+  <% end %>
+  <table class="data2 data3" cellspacing="0">
+    <tr>
+      <th><label><%= SabroFirst.human_attribute_name("name") %>:</label></th>
+      <td>
+        <%#= form.text_field :name, :maxlength => 50, :size => 40 %>
+      </td>
+    </tr>
+    <tr>
+      <th><label><%= SabroFirst.human_attribute_name("email") %>:</label></th>
+      <td>
+        <%= form.text_field :email, :maxlength => 50, :size => 40 %>
+      </td>
+    </tr>
+    <tr>
+      <th><label><%= SabroFirst.human_attribute_name("content") %>:</label></th>
+      <td>
+        <%= form.text_area :content,  :size => '40x8' %>
+      </td>
+    </tr>
+    <tr><td  class="center" colspan="2"><%= form.submit t('labels.save') ,:class => 'btn_s' %></td></tr>
+  </table>
+<% end %>
+<div class="link-right">
+  <%= link_to '返 回', admin_sabro_firsts_path, :class=>"link_s"%>
+</div>

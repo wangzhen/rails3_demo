@@ -1,0 +1,37 @@
+<% form_for @search, :url => blogs_path, :html => {:method => :get} do |f| %>
+  <%= f.label :title_contains %>
+  <%= f.text_field :title_contains %><br />
+  <%= f.label :public_datetime, 'With comments after' %>
+  <%= f.datetime_select :public_datetime_gte, :include_blank => true %><br />
+  <%= f.submit %>
+<% end %>
+
+<h1>Listing blogs</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Is public</th>
+    <th>Public datetime</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.title %></td>
+    <td><%= blog.content %></td>
+    <td><%= blog.is_public %></td>
+    <td><%= blog.public_datetime %></td>
+    <td><%= link_to 'Show', blog %></td>
+    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Blog', new_blog_path %>

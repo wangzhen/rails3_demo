@@ -1,0 +1,27 @@
+<div id="main">
+  <h2><%= t('h2.administrators') %></h2>
+
+  <div class="btn_t btn_add">
+    <input type="button" class="btn_s" value="<%= t('labels.new') %>" onclick="location.href='/admin/administrators/new'"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+
+  <table class="data2 order-table">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>创建时间</th>
+      <th><%= t('labels.operate') %></th>
+    </tr>
+    <% @administrators.each do |administrator| %>
+      <tr class="<%= cycle("", "even") %>">
+        <td><%= administrator.id %></td>
+        <td><%= administrator.name %></td>
+        <td><%= parse_date administrator.created_at %></td>
+        <td>
+          <%= link_to t('labels.edit'), edit_admin_administrator_path(administrator) %><br/>
+          <%= link_to t('labels.delete'), admin_administrator_path(administrator), :confirm => "are your sure?", :method => :delete %><br/>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

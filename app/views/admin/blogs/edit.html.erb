@@ -1,0 +1,4 @@
+<div id="main">
+  <h2><%= t("h2.edit_blog") %></h2>
+  <%= render :partial => '/admin/blogs/form', :locals => {:path => admin_blog_path(@blog)} %>
+</div>

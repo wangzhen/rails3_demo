@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title><%= @title || "admin" %></title>
+    <%= javascript_include_tag :defaults %>
+    <%#= javascript_include_tag :fckeditor %>
+    <%#= javascript_include_tag 'dialog.js' %>
+    <%= yield(:head) %>
+    <%= stylesheet_link_tag 'admin_new' %>
+    <%#= calendar_date_select_includes %>
+  </head>
+  <body>
+    <div id="wrapper" class="clearfix">
+      <div id="header" class="clearfix"><!-- ヘッダー -->
+        <div id="head_l">
+          <h1><a href="/admin/sessions/home"><img src="/images/admin/Logo_B.jpg" alt="company Logo"/></a></h1>
+        </div>
+        <div id="head_m" class="clearfix">
+          <span id="top_title">群发管理系统<b style="color:red;font-size:13px;"> 欢迎您! </b></span>
+          <div id="head_r" class="clearfix">
+            <p id="user_name"></p>          
+            <ul id="user_menu">
+              <li><%= link_to 'Logout', :controller=>'admin/sessions',:action=>'logout' %></li>
+              <li><%= link_to 'トップページ', home_admin_sessions_path%></li>
+              <li>
+                <% form_tag :url =>  '/admin/sessions/setlocale' ,:remote => true , :html => {:class => 'locale'} do %>
+                  <%= select_tag 'locale', options_for_select(LANGUAGES, I18n.locale.to_s||'zh'),
+                    :onchange => "$('s').click();" %>
+                  <%= submit_tag 'submit' ,:id => "s" %>
+                  <%= javascript_tag "$$('.locale input').each(Element.hide)" %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="containar" class="clearfix">
+        <%= render :partial => "/admin/shared/submenu" %>
+        <% if flash[:error] %>
+          <div id="error">
+            <%= flash[:error] %>
+          </div>
+        <% end %>
+        <% if flash[:notice] %>
+          <div id="notice">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

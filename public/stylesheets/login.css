@@ -1,0 +1,68 @@
+  body {
+  background-color: White;
+  color:#000000;
+  margin-left:auto;
+  margin-right:auto;
+  width:900px;
+}
+
+.data, .data2 {
+  width: 710px;
+  margin-bottom: 15px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-right: 1px solid #aaaaaa;
+  border-bottom: 1px solid #aaaaaa;
+}
+.data2 th {
+  padding: 7px;
+  border-top: 1px solid #aaaaaa;
+  border-left: 1px solid #aaaaaa;
+  text-align: center;
+  font-weight: bold;
+  color: #666666;
+  background-color: #e0f3f5;
+}
+
+.data2 td {
+  padding: 3px 8px;
+  border-top: 1px solid #aaaaaa;
+  border-left: 1px solid #aaaaaa;
+  background-color: #ffffff;
+}
+.btn {
+  height: 34px;
+  padding: 0 18px;
+  margin: 0 auto;
+  background: url(../images/admin/btn_main.gif) no-repeat;
+  border: 0;
+  cursor: pointer;
+  overflow: visible;
+}
+.btn_side {
+  margin-left: -6px;
+}
+.btn_box {
+  width: 710px;
+  height: 34px;
+  display: table-cell;
+  text-align: center;
+  font-weight: bold;
+  float: left;
+}
+.space20_bottom {
+  margin-bottom: 20px;
+}
+img{
+  vertical-align:bottom;
+}
+table{
+  font-size:20px;
+}
+.data2 input{
+  font-size:32px;
+  height:40px;
+  width:300px;
+}
+
+

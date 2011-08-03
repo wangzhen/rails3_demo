@@ -1,0 +1,26 @@
+<div id="sub"><!-- サブメニュー -->
+  <div id="menu" class="clearfix"><!-- g_menu -->
+    <p><a href="JavaScript:onClick=Tree('display1');ImgC('img1');"><img src="/images/admin/menu_icon_on.gif" width="36" height="36" alt="" id="img1" /><span><%= t("h2.administrators") %></span></a></p>
+    <ul id="display1" style="display:block">
+      <li><%= link_to  t('h2.administrators')   , admin_administrators_path %></li>
+    </ul>
+    <p><a href="JavaScript:onClick=Tree('display1');ImgC('img1');"><img src="/images/admin/menu_icon_on.gif" width="36" height="36" alt="" id="img1" /><span><%= t("h2.management") %></span></a></p>
+    <ul id="display1" style="display:block">
+      <li><%= link_to  t('h2.sabro_firsts')   , admin_sabro_firsts_path %></li>
+      <li><%= link_to  t('h2.blogs')   , admin_blogs_path %></li>
+           <!--
+      <li>< %= link_to  t('h2.news')   , admin_news_index_path %></li>
+      <li>< %= link_to  t('h2.featured_news')   , admin_featured_news_index_path %></li>
+      <li>< %= link_to  t('h2.shoppings')   , admin_shoppings_path %></li>
+      <li>< %= link_to  t('h2.foods')   , admin_foods_path %></li>
+      <li>< %= link_to  t('h2.travel_plans')   , admin_travel_plans_path %></li>
+ 
+      <li>< %= link_to  t('h2.traffics')   , admin_traffics_path %></li>
+      <li>< %= link_to  t('h2.stations')   , admin_stations_path %></li>
+
+      <li>< %= link_to  t('h2.contacts')   , admin_contacts_path %></li>
+                 -->
+    </ul>
+  </div><!-- /g_menu -->
+</div><!-- /sサブメニュー -->
+

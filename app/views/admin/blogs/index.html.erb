@@ -1,0 +1,32 @@
+<div id="main">
+  <h2><%= t('h2.blogs') %></h2>
+  <%= render :partial => "search" %>
+  <div class="btn_t btn_add">
+    <input type="button" class="btn_s" value="添加" onclick="location.href='/admin/blogs/new'"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+
+  <%= will_paginate @blogs %>
+<%= per_page_select_tag('per_page' ,{} , params[:per_page]|| 50 ,{}) %><br class="clear"/>
+  <table class="data2 order-table">
+    <tr>
+      <th><%=  sort_link @search, :id, :text => "ID"%></th>
+      <th><%=  sort_link @search,  :title , :text => Blog.human_attribute_name("title") %></th>
+      <th><%=  sort_link @search, :created_at , :text =>  Blog.human_attribute_name("created_at") %></th>
+      <th width="18%"><%= t('labels.operate') %></th>
+    </tr>
+    <% @blogs.each do |blog| %>
+      <tr class="<%= cycle("", "even") %>">
+        <td><%= blog.id %></td>
+        <td><%= blog.title %></td>
+        <td><%= parse_date blog.created_at %></td>
+        <td>
+          <%= link_to t('labels.edit'), edit_admin_blog_path(blog) %><br/>
+          <%= link_to t('labels.delete'), admin_blog_path(blog), :confirm => "are your sure?", :method => :delete %><br/>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate @blogs %>
+
+</div>

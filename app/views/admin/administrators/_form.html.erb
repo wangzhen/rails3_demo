@@ -1,0 +1,29 @@
+<% form_for [:admin, @administrator], :url => path do |form| %>
+  <table class="data2 data3" cellspacing="0">
+    <tr>
+      <th><label><%= Administrator.human_attribute_name("name") %>:</label></th>
+      <td>
+        <%= form.text_field :name, :maxlength => 50, :size => 40 %>
+        <%=  @administrator.errors.on('name') %>
+      </td>
+    </tr>
+    <tr>
+      <th><label><%= Administrator.human_attribute_name("password") %>:</label></th>
+      <td>
+        <%= form.password_field :password, :maxlength => 50, :size => 40 %>
+        <%=  @administrator.errors.on('password') %>
+      </td>
+    </tr>
+    <tr>
+      <th><label><%= Administrator.human_attribute_name("password_confirmation") %>:</label></th>
+      <td>
+        <%= form.password_field :password_confirmation, :maxlength => 50, :size => 40 %>
+        <%=  @administrator.errors.on('password_confirmation') %>
+      </td>
+    </tr>
+    <tr><td  class="center" colspan="2"><%= form.submit t('labels.save') ,:class => 'btn_s' %></td></tr>
+  </table>
+<% end %>
+<div class="link-right">
+  <%= link_to t('labels.back'), admin_administrators_path, :class=>"link_s"%>
+</div>
