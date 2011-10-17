@@ -1,0 +1,30 @@
+<div id="main">
+  <h2><%= t('h2.categories') %></h2>
+  <%= render :partial => "search" %>
+  <div class="btn_t btn_add">
+    <input type="button" class="btn_s" value="添加" onclick="location.href='/admin/categories/new'"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+
+  <%= will_paginate @categories %>
+<%= per_page_select_tag('per_page' ,{} , params[:per_page]|| 50 ,{}) %><br class="clear"/>
+  <table class="data2 order-table">
+    <tr>
+      <th><%=  sort_link @search, :id, :text => "ID"%></th>
+      <th><%=  sort_link @search,  :name , :text => Blog.human_attribute_name("name") %></th>
+      <th width="18%"><%= t('labels.operate') %></th>
+    </tr>
+    <% @categories.each do |category| %>
+      <tr class="<%= cycle("", "even") %>">
+        <td><%= category.id %></td>
+        <td><%= category.name %></td>
+        <td>
+          <%= link_to t('labels.edit'), edit_admin_category_path(category) %><br/>
+          <%= link_to t('labels.delete'), admin_category_path(category), :confirm => "are your sure?", :method => :delete %><br/>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate @categories %>
+
+</div>

@@ -1,3 +1,4 @@
+#bundle
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.9'
@@ -10,11 +11,14 @@ gem 'rails', '3.0.9'
 #gem 'paperclip' , :git => 'git://github.com/thoughtbot/paperclip.git/' ,:branch => 'rails3'
 
 #gem "meta_search", :git => "git://github.com/ernie/meta_search.git"   # Track git repo
-  gem "meta_search" 
+gem "meta_search" 
 
 
 gem 'will_paginate'
 gem 'mysql2', '0.2.6'
+
+gem 'annotate'
+
 #gem 'rake', '0.8.7'
 #gem 'meta_search'
 

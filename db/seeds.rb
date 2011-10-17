@@ -8,10 +8,12 @@
 Rake::Task['db:drop'].invoke
 Rake::Task['db:create'].invoke
 Rake::Task['db:migrate'].invoke
-Rake::Task['annotate_models'].invoke
+
 require 'active_record/fixtures'
 #             rake db:init_tables
 #Dir['db/fixtures/*.{rb,yml}'].each do |file|
 #  Fixtures.create_fixtures('db/fixtures',File.basename(file,'.*'))
 #end
 Administrator.create({:name => 'admin' , :password => 'admin' ,:password_confirmation => 'admin'})
+
+Rake::Task['annotate'].invoke

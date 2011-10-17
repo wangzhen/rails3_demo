@@ -1,0 +1,4 @@
+<div id="main">
+  <h2><%= t("h2.edit_category") %></h2>
+  <%= render :partial => '/admin/categories/form', :locals => {:path => admin_category_path(@category)} %>
+</div>

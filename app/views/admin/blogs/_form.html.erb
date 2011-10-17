@@ -10,6 +10,12 @@
       </td>
     </tr>
     <tr>
+      <th><label><%= Blog.human_attribute_name("category_id") %>:</label></th>
+      <td>
+        <%= form.select  :category_id ,Category.all.collect{|c|[c.name , c.id]} %>
+      </td>
+    </tr>
+    <tr>
       <th><label><%= Blog.human_attribute_name("content") %>:</label></th>
       <td>
         <%= form.text_area :content,  :size => '40x8' %>

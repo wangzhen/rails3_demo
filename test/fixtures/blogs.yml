@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: blogs
+#
+#  id                 :integer(4)      not null, primary key
+#  title              :string(255)
+#  content            :text
+#  category_id        :integer(4)
+#  is_public          :boolean(1)
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer(4)
+#  image_updated_at   :datetime
+#  public_datetime    :datetime
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
@@ -11,3 +29,5 @@ two:
   content: MyText
   is_public: false
   public_datetime: 2011-03-23 13:56:02
+
+

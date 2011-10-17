@@ -19,7 +19,7 @@ Rails3demo::Application.routes.draw do
       end
     end
     resources :administrators
-    resources :sabro_firsts
+    resources :categories
     resources :blogs
   end
 
